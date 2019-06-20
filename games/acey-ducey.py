@@ -4,7 +4,6 @@
 import platform
 import os
 import random
-import sys
 
 bet = 0
 user_bank = 100
@@ -109,7 +108,6 @@ def evaluate_user_bank():
 
 def exit():
     print('OK. HOPE YOU HAD FUN!')
-    sys.exit(0)
 
 def main():
     print_user_dollars()
