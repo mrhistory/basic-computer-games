@@ -1,24 +1,18 @@
 # Python implementation of AceyDucey by Bill Palmby from BASIC Computer Games (1978)
 # Source code at https://www.atariarchives.org/basicgames/showpage.php?page=2
 
-import platform
-import os
 import random
+import gameutils
 
+playing = True
 bet = 0
 user_bank = 100
 first_card = 0
 second_card = 0
 final_card = 0
 
-def clear_screen():
-    if platform.system() == "Windows":
-        os.system('cls')
-    else:
-        os.system('clear')
-
 def print_title_card():
-    clear_screen()
+    gameutils.clear_screen()
     print('\tACEY DUCEY CARD GAME')
     print('CREATIVE COMPUTING MORRISTOWN, NEW JERSEY')
     print('\n\n')
@@ -71,7 +65,6 @@ def take_bet():
     
     if bet == 0:
         print('CHICKEN!!')
-        main()
         
 def deal_final_card():
     global final_card
@@ -92,9 +85,7 @@ def evaluate_cards():
 
 def evaluate_user_bank():
     global user_bank
-    if user_bank > 0:
-        main()
-    else:
+    if user_bank == 0:
         print_user_dollars()
         print('\n')
         print('SORRY, FRIEND, BUT YOU BLEW YOUR WAD')
@@ -102,23 +93,25 @@ def evaluate_user_bank():
         
         if try_again.lower() == 'yes':
             user_bank = 100
-            main()
         else:
             exit()
 
 def exit():
+    global playing
     print('OK. HOPE YOU HAD FUN!')
+    playing = False
 
-def main():
-    print_user_dollars()
-    deal_two_cards()
-    take_bet()
-    deal_final_card()
-    evaluate_cards()
-    evaluate_user_bank()
+def game_loop():
+    while playing:
+        print_user_dollars()
+        deal_two_cards()
+        take_bet()
+        deal_final_card()
+        evaluate_cards()
+        evaluate_user_bank()
 
-def init():
+def run():
+    global user_bank
+    user_bank = 100
     print_title_card()
-    main()
-
-init()
+    game_loop()
