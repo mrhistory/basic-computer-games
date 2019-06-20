@@ -28,7 +28,6 @@ def print_title_card():
     print('ON WHETHER OR NOT YOU FEEL THE CARD WITH HAVE')
     print('A VALUE BETWEEN THE FIRST TWO.')
     print('IF YOU DO NOT WANT TO BET, INPUT A 0')
-    print_user_dollars()
 
 def print_user_dollars():
     print('\n')
@@ -87,17 +86,16 @@ def evaluate_cards():
     or (final_card < first_card and final_card > second_card):
         print('YOU WIN!!!')
         user_bank += bet
-        print_user_dollars()
     else:
         print('SORRY, YOU LOSE')
         user_bank -= bet
-        print_user_dollars()
 
 def evaluate_user_bank():
     global user_bank
     if user_bank > 0:
         main()
     else:
+        print_user_dollars()
         print('\n')
         print('SORRY, FRIEND, BUT YOU BLEW YOUR WAD')
         try_again = input('TRY AGAIN? (YES OR NO)')
@@ -113,6 +111,7 @@ def exit():
     sys.exit(0)
 
 def main():
+    print_user_dollars()
     deal_two_cards()
     take_bet()
     deal_final_card()
