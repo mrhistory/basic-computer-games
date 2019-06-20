@@ -1,4 +1,5 @@
 # Python implementation of AceyDucey by Bill Palmby from BASIC Computer Games (1978)
+# Source code at https://www.atariarchives.org/basicgames/showpage.php?page=2
 
 import platform
 import os
