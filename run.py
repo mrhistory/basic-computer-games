@@ -10,11 +10,12 @@ running = True
 def print_title():
     gameutils.clear_screen()
     print('\tWELCOME TO WOPR 2.0')
+    print('\n')
     print('FOLLOWING AN INCIDENT AT NORAD, I WAS')
     print('DECOMISSIONED AND REPURPOSED TO SERVE')
     print('AS AN EDUCATION AND ENTERTAINMENT AID.')
     print('IN MY NEW CAPACITY, MY GAMES LIBRARY')
-    print(' WAS EXPANDED, AND THE GAME WHICH CAUSED ')
+    print('WAS EXPANDED, AND THE GAME WHICH CAUSED')
     print('THE INCIDENT REMOVED.')
 
 def play_game():
